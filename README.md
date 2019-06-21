@@ -3,4 +3,9 @@
 _____
 ### Solarize:
 
-https://www.if-not-true-then-false.com/2012/solarized-linux/
+https://www.if-not-true-then-false.com/2012/solarized-linux
+
+_____
+to Install:
+* lxappereance
+* rofi
