@@ -1,0 +1,17 @@
+- name: Install i3 
+  apt:
+    name: i3
+    update_cache: yes
+  become: True
+
+- name: Install i3blocks
+  apt:
+    name: i3blocks
+    update_cache: yes
+  become: True
+
+- name: Install font-awesome
+  apt:
+    name: fonts-font-awesome
+    update_cache: yes
+  become: True
