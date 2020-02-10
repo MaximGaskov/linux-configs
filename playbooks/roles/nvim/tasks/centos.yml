@@ -1,0 +1,15 @@
+- name: Add EPEL repository
+  yum_repository:
+    name: epel
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+- name: Install neovim
+  yum:
+    name: neovim
+    state: present
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - neovim
+    - python3-neovim

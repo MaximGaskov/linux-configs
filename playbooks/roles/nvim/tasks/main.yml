@@ -1,0 +1,10 @@
+- name: Install i3wm on Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Install i3wm on CentOS
+  import_tasks: centos.yml
+  when: ansible_distribution == 'CentOS'
+
+- name: Install vim-plug
+  import_tasks: vim-plug.yml
