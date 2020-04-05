@@ -15,3 +15,9 @@
     name: fonts-font-awesome
     update_cache: yes
   become: True
+
+- name: Install lxappearance
+  apt:
+    name: lxappearance
+    update_cache: yes
+  become: True
