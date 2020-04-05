@@ -1,11 +1,6 @@
 # linux-configs
+[i3wm](https://i3wm.org/)
 
-_____
-### Solarize:
-
-https://www.if-not-true-then-false.com/2012/solarized-linux
-
-_____
-to Install:
-* lxappereance
-* rofi
+## requirements:
+* python
+* ansible
