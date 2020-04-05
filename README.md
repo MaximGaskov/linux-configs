@@ -12,8 +12,8 @@ ansible-playbook -i playbooks/inventory playbooks/main.yml
 ## Non-standard key-bindings:
 keys | action
 ------------ | -------------
-cmd+home | reboot/poweroff/logout menu
-cmd+t | Thunar file manager (opens on 4th workspace)
-cmd+i | Firefox (2nd workspace)
+mod+home | reboot/poweroff/logout menu
+mod+t | Thunar file manager (opens on 4th workspace)
+mod+i | Firefox (2nd workspace)
 
 
