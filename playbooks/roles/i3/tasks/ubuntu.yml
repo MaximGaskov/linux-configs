@@ -21,3 +21,9 @@
     name: lxappearance
     update_cache: yes
   become: True
+
+- name: Install arc-theme
+  apt:
+    name: arc-theme 
+    update_cache: yes
+  become: True
