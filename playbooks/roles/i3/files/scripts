@@ -1,0 +1,1 @@
+max    ALL=(ALL) NOPASSWD: /home/max/.scripts/brightness.sh*

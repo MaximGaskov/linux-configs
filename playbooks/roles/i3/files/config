@@ -149,6 +149,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# Audio controls (now provided by Plasma)
+# bindsym XF86AudioLowerVolume exec ~/audio.sh --down
+# bindsym XF86AudioRaiseVolume exec ~/audio.sh --up
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -225,8 +228,8 @@ bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -R
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo ~/.scripts/brightness.sh inc 20
+bindsym XF86MonBrightnessDown exec sudo ~/.scripts/brightness.sh dec 20
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -245,7 +248,17 @@ new_window 1pixel
 # Custom keybindings
 bindsym $mod+i exec firefox
 bindsym $mod+t exec thunar
-bindsym $mod+m exec vk
 bindsym Print exec maim -s | xclip -selection clipboard -t image/png
 #bindsym $mod+d exec rofi -show
-bindsym $mod+c exec 'google-calendar &' 
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]

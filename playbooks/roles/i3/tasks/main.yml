@@ -1,6 +1,59 @@
-- name: Install i3wm on Ubuntu
-  import_tasks: ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
+- name: Install i3 
+  apt:
+    name: i3
+    update_cache: yes
+  become: True
 
-- name: Place configs 
-  import_tasks: configs.yml
+- name: Install i3blocks
+  apt:
+    name: i3blocks
+    update_cache: yes
+  become: True
+
+- name: Install font-awesome
+  apt:
+    name: fonts-font-awesome
+    update_cache: yes
+  become: True
+
+- name: Install lxappearance
+  apt:
+    name: lxappearance
+    update_cache: yes
+  become: True
+
+- name: Install arc-theme
+  apt:
+    name: arc-theme 
+    update_cache: yes
+  become: True
+
+- name: Copy i3wm 'config' file
+  copy:
+    src: config
+    dest: ~/.config/i3/
+
+- name: Copy 'i3blocks.conf' file
+  copy:
+    src: i3blocks.conf
+    dest: ~/.config/i3/
+
+- name: Create a directory for custom scripts
+  file:
+    path: ~/.scripts
+    state: directory
+
+- name: Copy 'brightness.sh' script
+  copy:
+    src: brightness.sh
+    dest: ~/.scripts/
+    mode: u+x
+
+- name: Create sudoers config for brightness
+  copy:
+    src: scripts
+    dest: /etc/sudoers.d/
+    owner: root
+    group: root
+    mode: '0440'
+  become: True
