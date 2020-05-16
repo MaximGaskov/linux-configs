@@ -132,15 +132,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Gnome-terminal"] $workspace1
 assign [class="Firefox"] $workspace2
-assign [class="Google-chrome"] $workspace5
-assign [class="jetbrains-idea"] $workspace3
-assign [class="VirtualBox Manager"] $workspace3
 assign [class="Thunar"] $workspace4
-assign [class="google-calendar-nativefier-3526be"] $workspace7
-assign [class="TelegramDesktop"] $workspace8
-assign [class="VK"] $workspace8
-assign [class="libreoffice"] $workspace9
-assign [class="Code"] $workspace9
 
 
 # reload the configuration file
@@ -250,15 +242,3 @@ bindsym $mod+i exec firefox
 bindsym $mod+t exec thunar
 bindsym Print exec maim -s | xclip -selection clipboard -t image/png
 #bindsym $mod+d exec rofi -show
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
-no_focus [class="plasmashell" window_type="notification"]
