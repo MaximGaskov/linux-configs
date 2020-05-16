@@ -28,6 +28,12 @@
     update_cache: yes
   become: True
 
+- name: Install thunar
+  apt:
+    name: thunar 
+    update_cache: yes
+  become: True
+
 - name: Install maim
   apt:
     name: maim 
