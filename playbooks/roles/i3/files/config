@@ -172,8 +172,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
+set $bg-color            #675F54
+set $inactive-bg-color   #675F54
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
@@ -212,7 +212,9 @@ mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Home mode "Exit (L)ogout, (R)eboot, (P)oweroff"
+#bindsym $mod+Home mode "Exit (L)ogout, (R)eboot, (P)oweroff"
+#bindsym $mod+Home mode "Exit (L)ogout, (R)eboot, (P)oweroff"
+bindsym $mod+KP_Home mode "Exit (L)ogout, (R)eboot, (P)oweroff"
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks 
@@ -231,7 +233,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # On startup
-exec --no-startup-id ~/.fehbg &
+exec --no-startup-id  feh --bg-fill ~/.feh/mountains.jpg
 exec --no-startup-id "setxkbmap -layout us,ru -option 'grp:lalt_lshift_toggle'"
 #exec --no-startup-id compton
 
