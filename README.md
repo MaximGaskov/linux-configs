@@ -6,14 +6,15 @@
 ansible-playbook -i playbooks/inventory playbooks/main.yml
 ```
 ## requirements:
-* python
 * ansible
 
-## Non-standard key-bindings:
+## non-standard key-bindings:
 keys | action
 ------------ | -------------
 mod+home | reboot/poweroff/logout menu
 mod+t | Thunar file manager (opens on 4th workspace)
 mod+i | Firefox (2nd workspace)
 
-
+## terminal style
+https://mayccoll.github.io/Gogh/
+Earthsong theme
