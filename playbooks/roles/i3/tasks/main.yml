@@ -28,6 +28,18 @@
     update_cache: yes
   become: True
 
+- name: Install maim
+  apt:
+    name: maim 
+    update_cache: yes
+  become: True
+
+- name: Install xclip
+  apt:
+    name: xclip
+    update_cache: yes
+  become: True
+
 - name: Copy i3wm 'config' file
   copy:
     src: config
