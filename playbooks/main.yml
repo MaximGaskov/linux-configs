@@ -1,3 +1,5 @@
-- hosts: all
-  roles:
-    - i3
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - import_tasks: tasks/install_packages.yml
+    - import_tasks: tasks/copy_configs.yml

@@ -1,0 +1,30 @@
+- name: Create dirs for config files
+  file:
+    path: "{{ item }}"
+    mode: '0750'
+    state: directory
+    recurse: yes
+  with_items: 
+    - "~/.themes"
+    - "~/.scripts"
+    - "~/.vifm"
+    - "~/.config/i3"
+    - "~/.feh"
+
+- name: Move directory contents
+  command: cp -r {{ item.src_dir }} {{ item.dest_dir}}
+  loop: 
+    - {src_dir: 'files/config',  dest_dir: '~/.config'}
+    - {src_dir: 'files/feh',     dest_dir: '~/.feh' }
+    - {src_dir: 'files/scripts', dest_dir: '~/.scripts' }
+    - {src_dir: 'files/themes',  dest_dir: '~/.themes' }
+    - {src_dir: 'files/vifm',    dest_dir: '~/.vifm' }
+
+- name: Create sudoers config for brightness.sh
+  copy:
+    src: files/scripts/scripts
+    dest: /etc/sudoers.d/
+    owner: root
+    group: root
+    mode: '0440'
+  become: True

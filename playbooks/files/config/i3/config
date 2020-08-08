@@ -132,7 +132,6 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Gnome-terminal"] $workspace1
 assign [class="Firefox"] $workspace2
-assign [class="Thunar"] $workspace4
 
 
 # reload the configuration file
@@ -187,13 +186,13 @@ bar {
         position bottom
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         colors {
-      background #002b36
-      statusline #839496
-      separator  #586e75
-      focused_workspace  #b58900 #b58900 #002b36
-      active_workspace   #586e75 #586e75 #002b36
-      inactive_workspace #073642 #002b36 #839496
-      urgent_workspace   #dc322f #dc322f #fdf6e3
+    	    background #002b36
+      	    statusline #839496
+      	    separator  #586e75
+      	    focused_workspace  #b58900 #b58900 #002b36
+      	    active_workspace   #586e75 #586e75 #002b36
+      	    inactive_workspace #073642 #002b36 #839496
+      	    urgent_workspace   #dc322f #dc322f #fdf6e3
         }
 }
 
@@ -237,12 +236,11 @@ bindsym XF86AudioPrev exec playerctl previous
 # On startup
 exec --no-startup-id  feh --bg-fill ~/.feh/wallpaper-2.jpg
 exec --no-startup-id "setxkbmap -layout us,ru -option 'grp:lalt_lshift_toggle'"
-#exec --no-startup-id compton
 
 new_window 1pixel
 
 # Custom keybindings
 bindsym $mod+i exec firefox
-bindsym $mod+t exec thunar
+bindsym $mod+t exec i3-sensible-terminal -e "vifm ~"
 bindsym Print exec maim -s | xclip -selection clipboard -t image/png
 #bindsym $mod+d exec rofi -show

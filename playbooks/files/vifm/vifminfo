@@ -1,0 +1,23 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+
+# Bookmarks:
+b/home/max/
+	h
+	1596903447
+b/home/max/Documents/Work/
+	w
+	1596903447
+b/home/max/Downloads/
+	dow
+	1596903447
+b/home/max/.vifm/vifmrc
+	s
+	1596903447
+
+# Trash content:
+t/home/max/.local/share/vifm/Trash/000_config.bak
+	/home/max/.config/i3/config.bak
+t/home/max/.local/share/vifm/Trash/000_i3blocks.conf.bak
+	/home/max/.config/i3/i3blocks.conf.bak

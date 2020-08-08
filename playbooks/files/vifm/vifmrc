@@ -1,0 +1,12 @@
+colorscheme solarized_dark
+nnoremap w :view<cr>
+nnoremap m :bmark<Space>
+nnoremap ` :bmgo<Space> 
+filetype *.pdf xdg-open &
+set number
+set relativenumber
+bmark! ~/ h
+bmark! ~/Documents/Work/ w
+bmark! ~/Downloads/ dow
+bmark! ~/.vifm/vifmrc s
+

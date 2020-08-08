@@ -1,0 +1,5 @@
+- name: Packages
+  apt:
+    name: ['i3', 'i3blocks', 'fonts-font-awesome', 'lxappearance', 'xclip', 'vifm']
+    update_cache: yes
+  become: True
