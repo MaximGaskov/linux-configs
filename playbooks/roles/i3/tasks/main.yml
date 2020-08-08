@@ -56,6 +56,27 @@
     src: i3blocks.conf
     dest: ~/.config/i3/
 
+- name: Create feh dir
+  file:
+    path: ~/.feh
+    state: directory
+
+- name: Copy wallpaper
+  copy:
+    src: wallpaper-2.jpg
+    dest: ~/.feh
+
+- name: Create themes dir
+  file:
+    path: ~/.themes
+    state: directory
+
+- name: Copy solarized dir to themes
+  copy:
+    src: Solarized-Dark-Blue-3.36
+    dest: ~/.themes
+
+
 - name: Create a directory for custom scripts
   file:
     path: ~/.scripts
