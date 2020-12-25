@@ -15,17 +15,17 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   loop: 
-  #    - { src: "{{ playbook_dir }}/files/themes/", dest: '~/.themes/'}
-  #    - { src: "{{ playbook_dir }}/files/config/", dest: '~/.config/'}
-  #    - { src: "{{ playbook_dir }}/files/scripts/", dest: '~/.scripts/'}
-  #    - { src: "{{ playbook_dir }}/files/feh/", dest: '~/.feh/'}
+    - { src: "{{ playbook_dir }}/files/themes/", dest: '~/.themes/'}
+    - { src: "{{ playbook_dir }}/files/config/", dest: '~/.config/'}
+    - { src: "{{ playbook_dir }}/files/scripts/", dest: '~/.scripts/'}
+    - { src: "{{ playbook_dir }}/files/feh/", dest: '~/.feh/'}
     - { src: "{{ playbook_dir }}/files/vimrc", dest: '~/.vimrc'}
 
-      #- name: Create sudoers config for brightness.sh
-      #  copy:
-      #    src: "{{ playbook_dir }}/files/scripts/scripts"
-      #    dest: /etc/sudoers.d/
-      #    owner: root
-      #    group: root
-      #    mode: '0440'
-      #  become: True
+- name: Create sudoers config for brightness.sh
+  copy:
+    src: "{{ playbook_dir }}/files/scripts/scripts"
+    dest: /etc/sudoers.d/
+    owner: root
+    group: root
+    mode: '0440'
+  become: True

@@ -1,0 +1,7 @@
+- name: Clone Vundle repo
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: Trigger plugins' installation
+  shell: vim +PluginInstall +qall
