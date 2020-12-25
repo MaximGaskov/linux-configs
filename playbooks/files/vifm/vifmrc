@@ -1,4 +1,4 @@
-colorscheme solarized_dark
+colorscheme solarized_light
 nnoremap w :view<cr>
 nnoremap m :bmark<Space>
 nnoremap ` :bmgo<Space> 
