@@ -1,5 +1,9 @@
-- name: Packages
+- name: Install apt packages
   apt:
     name: ['i3', 'i3blocks', 'fonts-font-awesome', 'lxappearance', 'xclip', 'vifm', 'feh', 'dconf-cli']
     update_cache: yes
+  become: True
+
+- name: Install snap packages
+  shell: snap install --classic code
   become: True
