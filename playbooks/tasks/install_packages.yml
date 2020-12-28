@@ -5,8 +5,11 @@
   become: True
 
 - name: Install snap packages
-  shell: snap install --classic code
+  shell: "snap install --classic {{ item }}"
   become: True
+  with_items:
+    - notable
+    - code
 
 - name: Install pip packages
   pip:
