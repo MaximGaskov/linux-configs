@@ -5,7 +5,7 @@
 
 # printf 1st value description: 1 - dark, 3 - white
 - name: Run solarized terminal installation script
-  shell: printf "3\n 1\n YES" | ~/Documents/solarized_terminal/install.sh
+  shell: printf "1\n 1\n YES" | ~/Documents/solarized_terminal/install.sh
 
 - name: Delete solarized repo
   file:
