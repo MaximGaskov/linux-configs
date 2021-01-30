@@ -236,7 +236,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # On startup
-exec --no-startup-id  feh --bg-fill ~/.feh/wallpaper-2.jpg
+exec --no-startup-id  feh --bg-fill ~/.feh/wallpaper-1.jpg
 exec --no-startup-id "setxkbmap -layout us,ru -option 'grp:lalt_lshift_toggle'"
 
 new_window 1pixel
