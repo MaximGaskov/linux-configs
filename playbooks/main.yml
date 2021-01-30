@@ -1,8 +1,9 @@
 - hosts: localhost
   gather_facts: no
   tasks:
-    - import_tasks: tasks/install_packages.yml
-    - import_tasks: tasks/copy_configs.yml
-    - import_tasks: tasks/vundle_install.yml
-    - import_tasks: tasks/solarize_terminal.yml
-
+    - import_role: 
+        name: vim
+    - import_role: 
+        name: terminal
+    - import_role: 
+        name: i3

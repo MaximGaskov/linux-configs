@@ -1,0 +1,35 @@
+- name: Install apt packages
+  apt:
+    name: ['i3', 'i3blocks', 'fonts-font-awesome', 'lxappearance', 'xclip', 'maim', 'vifm', 'feh', 'dconf-cli']
+    update_cache: yes
+  become: True
+
+- name: Create dirs for config files
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: yes
+  with_items: 
+    - "~/.themes"
+    - "~/.scripts"
+    - "~/.config/i3"
+    - "~/.feh"
+
+- name: Move directory contents
+  synchronize:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop: 
+    - { src: "themes/", dest: '~/.themes/'}
+    - { src: "scripts/", dest: '~/.scripts/'}
+    - { src: "config/", dest: '~/.config/'}
+    - { src: "feh/", dest: '~/.feh/'}
+
+- name: Create sudoers config for brightness.sh
+  copy:
+    src: "brightness.conf"
+    dest: /etc/sudoers.d/
+    owner: root
+    group: root
+    mode: '0440'
+  become: True

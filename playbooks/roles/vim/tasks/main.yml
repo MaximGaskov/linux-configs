@@ -1,0 +1,18 @@
+- name: Install apt packages
+  apt:
+    name: vim
+    update_cache: yes
+  become: True
+
+- name: Move vimrc to home dir 
+  synchronize:
+    src: "vimrc"
+    dest: "~/.vimrc"
+
+- name: Clone Vundle repo
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: Trigger plugins installation
+  shell: vim +PluginInstall +qall
