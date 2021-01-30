@@ -1,6 +1,6 @@
 - name: Install apt packages
   apt:
-    name: ['i3', 'i3blocks', 'fonts-font-awesome', 'lxappearance', 'xclip', 'maim', 'vifm', 'feh', 'dconf-cli']
+    name: ['i3', 'i3blocks', 'fonts-font-awesome', 'lxappearance', 'xclip', 'maim', 'vifm', 'feh']
     update_cache: yes
   become: True
 

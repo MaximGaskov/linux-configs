@@ -1,3 +1,9 @@
+- name: Install apt packages
+  apt:
+    name: dconf-cli
+    update_cache: yes
+  become: True
+
 - name: Clone solarized terminal repo
   git:
     repo: https://github.com/aruhier/gnome-terminal-colors-solarized.git
