@@ -1,6 +1,6 @@
 - name: Install apt packages
   apt:
-    name: ['i3', 'i3blocks', 'fonts-font-awesome', 'lxappearance', 'xclip', 'maim', 'vifm', 'feh']
+    name: ['i3', 'i3blocks', 'fonts-font-awesome', 'xclip', 'maim', 'feh']
     update_cache: yes
   become: True
 
@@ -24,6 +24,7 @@
     - { src: "scripts/", dest: '~/.scripts/'}
     - { src: "config/", dest: '~/.config/'}
     - { src: "feh/", dest: '~/.feh/'}
+    - { src: "gtkrc-2.0", dest: '~/.gtkrc-2.0'}
 
 - name: Create sudoers config for brightness.sh
   copy:
