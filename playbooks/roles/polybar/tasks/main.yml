@@ -1,0 +1,69 @@
+# check here if polybar installed
+
+- name: Install build dependencies
+  apt:
+    name: ['build-essential', 'clang-7', 'cmake', 'cmake-data', 'pkg-config', 'python3', 'python3-sphinx']
+    update_cache: yes
+  become: True
+  register: build_deps_result
+
+- name: Install run dependencies
+  apt:
+    name: ['libcairo2-dev', ' libxcb1-dev', 'libxcb-util0-dev', 'libxcb-randr0-dev', 'libxcb-composite0-dev', ' python-xcbgen', 'xcb-proto', 'libxcb-image0-dev', ' libxcb-ewmh-dev', 'libxcb-icccm4-dev', 'libxcb-cursor-dev', 'libjsoncpp-dev']
+    update_cache: yes
+  become: True
+
+- set_fact:
+    newly_installed_build_deps: "{{ build_deps_result.stdout  | regex_search('The following NEW packages will be installed:\n\\s*(.*)\n', '\\1') | first }}"
+  when: "'stdout' in build_deps_result"
+
+- name: Download git repo
+  git:
+    repo: 'https://github.com/polybar/polybar.git' 
+    dest: "/tmp/polybar-{{ release_version }}"
+    version: hotfix/3.5.5
+
+# - name: Download archieve
+  # get_url:
+    # url: "https://github.com/polybar/polybar/releases/download/{{ release_version }}/polybar-{{ release_version }}.tar.gz"
+    # dest: /tmp
+# 
+# - name: Unarchieve
+  # unarchive:
+    # src: /tmp/polybar-{{ release_version }}.tar.gz
+    # dest: /tmp
+
+- name: Create build dir
+  file:
+    path: "/tmp/polybar-{{ release_version }}/build"
+    state: directory
+
+- name: Run cmake
+  shell: cmake ..
+  args:
+    chdir: "/tmp/polybar-{{ release_version }}/build"
+
+- name: Run make default target
+  community.general.make:
+    chdir: "/tmp/polybar-{{ release_version }}/build"
+    params:
+      NUM_THREADS: "{{ ansible_processor_vcpus }}"
+
+- name: Run make install
+  community.general.make:
+    chdir: "/tmp/polybar-{{ release_version }}/build"
+    target: install
+
+- name: Remove build dependencies
+  apt:
+    name: "{{ newly_installed_build_deps.split() }}"
+    state: absent
+  become: True
+  when: "'stdout' in build_deps_result"
+
+- name: Remove build dependencies
+  apt:
+    name: "{{ newly_installed_build_deps.split() }}"
+    state: absent
+  become: True
+  when: "'stdout' in build_deps_result"
